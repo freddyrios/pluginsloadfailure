@@ -13,7 +13,7 @@ dotnet publish .\HelloPlugin\ -c Release -f net6.0
 dotnet publish AppWithPlugin -c Release -r win-x64 --self-contained -p:PublishSingleFile=true -f net6.0
 mkdir test
 cp HelloPlugin\bin\Release\net6.0\publish\* .\test\
-cp \AppWithPlugin\bin\Release\net6.0\win-x64\publish\* .\test\
+cp AppWithPlugin\bin\Release\net6.0\win-x64\publish\* .\test\
 cd test
 ./AppWithPlugin.exe
 ```
@@ -22,9 +22,10 @@ To confirm this is a regression i.e. works on .net 5:
 ```
 dotnet publish .\HelloPlugin\ -c Release -f net5.0
 dotnet publish AppWithPlugin -c Release -r win-x64 --self-contained -p:PublishSingleFile=true -f net5.0
+rm -r test
 mkdir test
 cp HelloPlugin\bin\Release\net5.0\publish\* .\test\
-cp \AppWithPlugin\bin\Release\net5.0\win-x64\publish\* .\test\
+cp AppWithPlugin\bin\Release\net5.0\win-x64\publish\* .\test\
 cd test
 ./AppWithPlugin.exe
 ```
